@@ -24,10 +24,22 @@ user-select:none;
     margin-top: 0;
 }
 
+#bigContainer{
+    display:flex;
+    flex-direction:column;
+    flex: 1 1 auto;
+    padding:15%;
+    padding-top:0;
+    padding-bottom:0;
+    margin: 0;
+    align-items: space-between;
+    justify-content:center;
+
+}
+
 #containerOfThree{
     display: flex;
     flex-direction:row;
-    max-width: 75%;
     justify-content: center;
     justify-self: center;
     margin: auto;
@@ -55,14 +67,51 @@ user-select:none;
     transform:rotate(-10deg);
 }
 
-#score{
+#scoreBoard{
+    display: flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    margin: none;
+    justify-content: space-between;
+
+}
+
+#status{
     background-color: #afc2cb;
-    width:50%;
-    justify-self: center;
-    margin: auto;
     text-align: start;
     padding: 4vh;
     font-size: 3vh;
     font-weight: bold;
     user-select: none;
+    flex-grow: 1;
+}
+
+#score{
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 40px 40px;
+    margin-left: 1em;
+    justify-self: stretch;
+    
+    
+}
+
+#you{
+    grid-column-start: 1;
+
+}
+
+.top{
+    text-align: center;
+    margin:0;
+    font-weight: bold;
+    font-size: 16pt
+}
+
+.bot{
+    text-align: center;
+    margin:0;
+}
+.right{
+    border-left: solid 2px black;    
 }

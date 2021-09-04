@@ -40,7 +40,13 @@ let tools = document.querySelectorAll(".tool");
 let rock = document.querySelector("#rock");     
 let paper = document.querySelector("#paper");
 let scissor = document.querySelector("#scissor");
-let divOutput = document.querySelector("#score");
+let divOutput = document.querySelector("#status");
+let pcCounter = 0;
+let youCounter = 0;
+let containerSize = getComputedStyle(document.querySelector('#containerOfThree'));
+let scoreBoard = document.querySelector("#scoreBoard");
+
+
 
 function doRound(e){
     if(!e.target.closest('.tool')) return;
@@ -49,20 +55,37 @@ function doRound(e){
     let randomChoice = randomizer();
     let result = logic(humanChoice, randomChoice);
     let roundResult = mapState[result];
-
+    let you = document.querySelector("#scoreYou");
+    let pc = document.querySelector("#scorePc");
+    
 
     switch (roundResult) {
         case "win":
             divOutput.innerText = 'What a Glorious Smashing!';
+            divOutput.style.backgroundColor="lightgreen";
+            setTimeout(() => {
+                divOutput.style.backgroundColor="#afc2cb";  
+            }, 300);
+            youCounter++;
             break;
         case "loss":
             divOutput.innerText = "booooo! lost round!";
-            
+            divOutput.style.backgroundColor="red";
+            setTimeout(() => {
+                divOutput.style.backgroundColor="#afc2cb";
+            }, 300);
+            pcCounter++;
             break;
         default:
             divOutput.innerText = "Draw?! :O";
+            divOutput.style.backgroundColor="white";
+            setTimeout(() => {
+                divOutput.style.backgroundColor="#afc2cb";
+            }, 300);
             break;
     }
+    you.innerText=youCounter;
+    pc.innerText=pcCounter;
     return result;
 
 }
